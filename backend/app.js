@@ -58,7 +58,7 @@ app.post(
       password: Joi.string().required(),
     }),
   }),
-  login
+  login,
 );
 
 app.post(
@@ -72,7 +72,7 @@ app.post(
       avatar: Joi.string().pattern(/^((http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-/])*)?/),
     }),
   }),
-  createUser
+  createUser,
 );
 
 app.use(auth);
@@ -95,7 +95,7 @@ app.use((err, req, res, next) => {
   next(
     res.status(statusCode).send({
       message: statusCode === 500 ? 'На сервере произошла ошибка' : message,
-    })
+    }),
   );
 });
 
